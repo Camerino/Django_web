@@ -12,8 +12,6 @@ class Tag(models.Model):
          ordering = ['name']
 
 
-
-
 class Startup(models.Model):
     name = models.CharField(max_length=31,
                             db_index=True)
