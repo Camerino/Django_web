@@ -8,6 +8,7 @@ class Tag(models.Model):
                             help_text='A label for URL config.')
     def __unicode__(self):
         return self.name
+
     class Meta:
          ordering = ['name']
 
