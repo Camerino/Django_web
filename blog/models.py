@@ -1,5 +1,6 @@
 from django.db import models
 from organizer.models import Startup, Tag
+from django.core.urlresolvers import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=63)
@@ -20,6 +21,12 @@ class Post(models.Model):
         verbose_name = 'blog'
         ordering = ['-pub_date', 'title']
         get_latest_by = 'pub_date'
+
+    def get_absolute_url(self):
+        return reverse('blog_post_detail',
+                       kwargs={'year': self.pub_date.year,
+                               'month': self.pub_date.month,
+                               'slug':	self.slug})
 
 
 
