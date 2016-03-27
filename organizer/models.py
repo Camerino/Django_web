@@ -47,6 +47,7 @@ class NewsLink(models.Model):
     startup = models.ForeignKey(Startup)
     def __unicode__(self):
         return "{} : {}".format(self.startup, self.title)
+
     class Meta:
         verbose_name = 'news article'
         ordering = ['-pub_date']
